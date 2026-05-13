@@ -1,0 +1,150 @@
+/* courses.css */
+
+.courses-page {
+    width: 100%;
+    min-height: 100vh;
+    background: #f4f7fb;
+    padding: 50px 20px;
+}
+
+.courses-heading {
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 50px;
+    color: #0d6efd;
+}
+
+.course-card {
+    max-width: 1100px;
+    margin: 0 auto 30px auto;
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.course-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.course-card-header h2 {
+    font-size: 30px;
+    color: #198754;
+}
+
+.short-desc {
+    margin-top: 10px;
+    color: #555;
+    line-height: 1.7;
+}
+
+.expand-btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 30%;
+    font-size: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #033452;
+    color: white;
+}
+
+.expand-btn.rotate {
+    transform: rotate(180deg);
+}
+
+.expanded-content,
+.course-section {
+    margin-top: 10px;
+}
+
+/* .course-section {
+    margin-bottom: 40px;
+} */
+
+.course-section h3 {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.arabic {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #198754;
+}
+
+.course-section ul {
+    padding-left: 20px;
+}
+
+.course-section li {
+    border: 2px solid #d1d5db;
+    /* soft contrast border */
+    background-color: #f9fafb;
+    /* light contrasting background */
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    line-height: 1.7;
+    list-style-position: inside;
+    transition: all 0.3s ease;
+}
+
+.course-section li:hover {
+    border-color: #033452;
+    background-color: #eff6ff;
+    transform: translateX(4px);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.feature-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.pricing-box {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.price-card {
+    flex: 1;
+    min-width: 250px;
+    background: #0d6efd;
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.contact-box {
+    background: #198754;
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+@media(max-width:768px) {
+
+    .course-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .courses-heading {
+        font-size: 35px;
+    }
+
+}
