@@ -6,7 +6,6 @@ import AuthForm from './components/Auth/AuthForm';
 import About from './components/About';
 import Contact from './components/Contact';
 import Courses from './components/Courses';
-import { AuthProvider } from "./context/AuthContext";
 import Profile from './components/profile/Profile';
 import LiveClasses from './components/live-class/LiveClasses';
 function App() {

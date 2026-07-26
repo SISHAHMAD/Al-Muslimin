@@ -56,7 +56,7 @@ const Profile = () => {
                             please complete your course enrollment first.
                         </p>
 
-                        <button className="primary-btn">
+                        <button className="primary-btn" onClick={() => navigate('/live-classes')}>
                             Access Live Classes
                         </button>
                     </div>
