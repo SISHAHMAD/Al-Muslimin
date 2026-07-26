@@ -1,5 +1,5 @@
 import React from 'react'
-import './navbar.css'
+import './Navbar.css'
 import logo from '../../assets/Al-Muslimin Logo.jpeg'
 import { useNavigate } from "react-router-dom"
 import AuthUser from '../Auth/AuthUser'
