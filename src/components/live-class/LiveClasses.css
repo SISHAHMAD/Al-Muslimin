@@ -1,0 +1,56 @@
+.live-container {
+    min-height: 100vh;
+    background: #f5f7fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.live-card {
+    width: 700px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+    text-align: center;
+}
+
+.live-card h1 {
+    color: #0d6efd;
+}
+
+.live-card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+.join-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 35px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.admin-panel {
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+    padding-top: 30px;
+}
+
+.admin-panel input {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+}
+
+.admin-panel button {
+    padding: 12px 30px;
+    background: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}

@@ -6,8 +6,12 @@ import AuthForm from './components/Auth/AuthForm';
 import About from './components/About';
 import Contact from './components/Contact';
 import Courses from './components/Courses';
+import { AuthProvider } from "./context/AuthContext";
+import Profile from './components/profile/Profile';
+import LiveClasses from './components/live-class/LiveClasses';
 function App() {
   return (
+
     <BrowserRouter>
       <Navbar />
       <Routes>
@@ -17,6 +21,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/courses/:courseId" element={<Courses />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/live-classes" element={<LiveClasses />} />
       </Routes>
     </BrowserRouter>
   )

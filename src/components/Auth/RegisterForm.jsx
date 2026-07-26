@@ -44,8 +44,21 @@ const RegisterForm = ({ setIsLogin }) => {
             setError(error.message);
             return;
         }
+        if (!error) {
+            const { error: profileError } = await supabase
+                .from("profiles")
+                .insert({
+                    id: data.user.id,
+                    email: data.user.email,
+                    role: "student",
+                });
 
-        console.log(data);
+            if (profileError) {
+                console.log(profileError);
+                setError(profileError.message);
+                return;
+            }
+        }
         alert("Registration successful. Please confirm your email for verification.");
         form.reset();
         navigate("/login");
