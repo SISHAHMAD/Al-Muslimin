@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AuthUser from "../Auth/AuthUser";
 import { FaUserCircle, FaVideo, FaQrcode } from "react-icons/fa";
-import "./Profile.css";
+import "./profile.css";
 import paymentQR from "../../assets/payment.jpeg";
 import { supabase } from "../../utils/supabase";
 import { useNavigate } from "react-router-dom";
