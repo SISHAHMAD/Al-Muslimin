@@ -3,7 +3,7 @@ import Card from './Card'
 import learnQuranImage from '../../assets/learning.jpg'
 import { useRef } from 'react';
 import { useNavigate } from "react-router-dom"
-
+import './home.css';
 function Home() {
     const navigate = useNavigate();
     const cardSectionRef = useRef(null);
@@ -16,23 +16,54 @@ function Home() {
     }
     return (
         <>
-            <div style={styles.container}>
-                <h1 style={styles.title}>MA'HAD ISLAH AL-MUSLIMIN</h1>
-                <h2>مَعْهَدُ إِصْلاح المُسْلِمینَ</h2>
+            <div style={styles.container} className="hero-title">
+                <h1 style={styles.title}>
+                    MA'HAD ISLAH AL-MUSLIMIN
+                </h1>
+
+                <h2 className="urdu-title">
+                    مَعْهَدُ إِصْلاح المُسْلِمینَ
+                </h2>
             </div>
-            <div style={styles.subtitleBox}>
-                <img src={learnQuranImage} alt="learn quran" className="img-fluid rounded" style={styles.image} />
-                <div>
-                    <p style={styles.subtitle}>Our Curriculum in islamic  courses - اِسلامی کورس کا نصاب </p>
+
+            <div style={styles.subtitleBox} className="hero-content">
+                <img
+                    src={learnQuranImage}
+                    alt="learn quran"
+                    className="hero-image img-fluid rounded"
+                    style={styles.image}
+                />
+
+                <div className="hero-text">
                     <p style={styles.subtitle}>
-                        A Tajweed Course is designed to help students recite the Qur’an correctly,
-                        following the rules of pronunciation, articulation, and rhythm as taught
-                        by the Prophet ﷺ
+                        Our Curriculum in Islamic Courses - اِسلامی کورس کا نصاب
                     </p>
-                    <p>We offer a courses designed to provide a deep and  authentic understanding of Islamic.</p>
-                    <div className="d-flex justify-content-start gap-3 mt-4">
-                        <button className="btns  rounded-pill mr-5" onClick={scrollToCourses}  >Courses we offer</button>
-                        <button className="btn btn-secondary rounded-pill" onClick={scrollTojourneystart}>Start  your journey</button>
+
+                    <p style={styles.subtitle}>
+                        A Tajweed Course is designed to help students recite the Qur’an
+                        correctly, following the rules of pronunciation, articulation,
+                        and rhythm as taught by the Prophet ﷺ.
+                    </p>
+
+                    <p>
+                        We offer courses designed to provide a deep and authentic
+                        understanding of Islam.
+                    </p>
+
+                    <div className="hero-buttons">
+                        <button
+                            className="btns rounded-pill"
+                            onClick={scrollToCourses}
+                        >
+                            Courses We Offer
+                        </button>
+
+                        <button
+                            className="btn btn-secondary rounded-pill"
+                            onClick={scrollTojourneystart}
+                        >
+                            Start Your Journey
+                        </button>
                     </div>
                 </div>
             </div>

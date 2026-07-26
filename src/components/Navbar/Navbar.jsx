@@ -1,38 +1,85 @@
-import React from 'react'
-import './Navbar.css'
-import logo from '../../assets/Al-Muslimin Logo.jpeg'
-import { useNavigate } from "react-router-dom"
-import AuthUser from '../Auth/AuthUser'
-import { FaUserCircle } from "react-icons/fa";
+import React, { useState } from "react";
+import "./Navbar.css";
+import logo from "../../assets/Al-Muslimin Logo.jpeg";
+import { useNavigate } from "react-router-dom";
+import AuthUser from "../Auth/AuthUser";
+import { FaUserCircle, FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
-  const { user, loading } = AuthUser();
-  const navigate = useNavigate()
+  const { user } = AuthUser();
+  const navigate = useNavigate();
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const goTo = (path) => {
+    navigate(path);
+    setMenuOpen(false);
+  };
+
   return (
-    <div className="navbar container ">
-      <img src={logo} alt="Logo" className='logo' />
+    <nav className="navbar container">
+      {/* Mobile Hamburger */}
+      <div
+        className="hamburger"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </div>
 
-      <ul>
-        <li className='active' onClick={() => navigate('./')}>Home</li>
-        <li onClick={() => navigate('/courses')}>Courses</li>
-        <li onClick={() => navigate('/about')}>About</li>
-        <li onClick={() => navigate('/contact')}>Contact</li>
+      {/* Logo */}
+      <img
+        src={logo}
+        alt="Logo"
+        className="logo"
+        onClick={() => goTo("/")}
+      />
 
+      {/* Desktop Menu */}
+      <ul className="nav-links">
+        <li onClick={() => goTo("/")}>Home</li>
+        <li onClick={() => goTo("/courses")}>Courses</li>
+        <li onClick={() => goTo("/about")}>About</li>
+        <li onClick={() => goTo("/contact")}>Contact</li>
       </ul>
-      <div className="d-flex align-items-center gap-3">
-        <button className='live-classes btns' onClick={() => navigate('/live-classes')}>
+
+      {/* Right Side */}
+      <div className="nav-right">
+        <button
+          className="live-classes btns desktop-btn"
+          onClick={() => goTo("/live-classes")}
+        >
           Live Classes
         </button>
+
         {user ? (
-          <FaUserCircle size={34} onClick={() => navigate('/profile')} />
+          <FaUserCircle
+            className="profile-icon"
+            size={34}
+            onClick={() => goTo("/profile")}
+          />
         ) : (
-          <button className='btns' onClick={() => navigate('/login')}>
+          <button className="btns" onClick={() => goTo("/login")}>
             Login
           </button>
         )}
       </div>
-    </div>
-  )
-}
 
-export default Navbar
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
+        <li onClick={() => goTo("/")}>Home</li>
+        <li onClick={() => goTo("/courses")}>Courses</li>
+        <li onClick={() => goTo("/about")}>About</li>
+        <li onClick={() => goTo("/contact")}>Contact</li>
+
+        <button
+          className="btns mobile-live-btn"
+          onClick={() => goTo("/live-classes")}
+        >
+          Live Classes
+        </button>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
