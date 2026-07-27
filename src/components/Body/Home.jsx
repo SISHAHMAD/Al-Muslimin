@@ -27,14 +27,16 @@ function Home() {
             </div>
 
             <div style={styles.subtitleBox} className="hero-content">
-                <img
-                    src={learnQuranImage}
-                    alt="learn quran"
-                    className="hero-image img-fluid rounded"
-                    style={styles.image}
-                />
+                <div className="">
+                    <img
+                        src={learnQuranImage}
+                        alt="learn quran"
+                        className="hero-image img-fluid rounded"
+                        style={styles.image}
+                    />
+                </div>
 
-                <div className="hero-text">
+                <div className="hero-text col-md-6">
                     <p style={styles.subtitle}>
                         Our Curriculum in Islamic Courses - اِسلامی کورس کا نصاب
                     </p>
@@ -160,10 +162,6 @@ const styles = {
         margin: "20px",
         borderRadius: "20px",
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        gap: "20px",
     },
     image: {
         width: "400px",
