@@ -54,7 +54,7 @@ const Navbar = () => {
 
           {user ? (
             <FaUserCircle
-              className="profile-icon"
+              className="profile-icons "
               size={34}
               onClick={() => goTo("/profile")}
             />

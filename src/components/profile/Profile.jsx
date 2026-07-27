@@ -19,7 +19,7 @@ const Profile = () => {
             <div className="profile-card">
 
                 {/* Profile Header */}
-                <div className="profile-header">
+                <div className="profile-header ">
 
                     <FaUserCircle className="profile-icon" />
 
@@ -33,11 +33,11 @@ const Profile = () => {
 
                     <p>{user?.email}</p>
                     {user ? (
-                        <button className="logout-btn btns" onClick={handleLogout}>
+                        <button className=" btns" onClick={handleLogout}>
                             Logout
                         </button>
                     ) : (
-                        <button className="logout-btn btns" onClick={() => navigate('/login')}>
+                        <button className=" btns" onClick={() => navigate('/login')}>
                             Login
                         </button>
                     )}
@@ -56,7 +56,7 @@ const Profile = () => {
                             please complete your course enrollment first.
                         </p>
 
-                        <button className="primary-btn" onClick={() => navigate('/live-classes')}>
+                        <button className="btns" onClick={() => navigate('/live-classes')}>
                             Access Live Classes
                         </button>
                     </div>
@@ -85,7 +85,7 @@ const Profile = () => {
                                 Please  wait from admin  side  to activate your course access!
                             </p>
                         ) : (
-                            <button className="primary-btn" onClick={() => setPaymentCompleted(true)}>
+                            <button className="btns" onClick={() => setPaymentCompleted(true)}>
                                 I Have Completed the Payment
                             </button>
                         )}
