@@ -1,6 +1,6 @@
 .live-container {
-    min-height: 100vh;
-    background: #f5f7fb;
+    min-height: 60vh;
+    /* background: #f5f7fb; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +9,7 @@
 .live-card {
     width: 700px;
     background: #fff;
-    padding: 40px;
+    padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
     text-align: center;

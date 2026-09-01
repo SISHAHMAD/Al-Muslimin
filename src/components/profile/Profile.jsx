@@ -5,10 +5,13 @@ import "./profile.css";
 import paymentQR from "../../assets/payment.jpeg";
 import { supabase } from "../../utils/supabase";
 import { useNavigate } from "react-router-dom";
+import ProfileUser from "../Auth/ProfileUser";
+import StudentsTable from "../Students/Students-Lists";
 
 const Profile = () => {
     const { user } = AuthUser();
     const navigate = useNavigate();
+    const { profile, loading } = ProfileUser();
     const handleLogout = async () => {
         const { error } = await supabase.auth.signOut();
     };
@@ -20,8 +23,9 @@ const Profile = () => {
 
                 {/* Profile Header */}
                 <div className="profile-header ">
-
-                    <FaUserCircle className="profile-icon" />
+                    <div className="d-flex justify-content-center align-items-center">
+                        <FaUserCircle className="profile-icon " />
+                    </div>
 
                     <h2>
                         Assalamu Alaikum,
@@ -42,9 +46,19 @@ const Profile = () => {
                         </button>
                     )}
                 </div>
+                {/* ========== ADMIN STUDENTS SECTION \============= */}
+                {profile?.role === "admin" && (
+                    <div className="profile-section students-section">
+                        <h3> Students Management </h3>
+                        <p> View and manage all students, including their course enrollment and payment status. </p>
+                        <StudentsTable profile={profile} />
+                    </div>
+                )}
 
                 {/* Live Classes */}
-                {user && (
+
+                {user && profile?.role !== "admin" && (
+
                     <div className="profile-section">
                         <h3>
                             <FaVideo /> Live Classes
@@ -63,7 +77,7 @@ const Profile = () => {
                 )}
 
                 {/* Payment Section */}
-                {user && (
+                {user && profile?.role !== "admin" && (
                     <div className="profile-section payment-section">
                         <h3>
                             <FaQrcode /> Course Enrollment & Payment
@@ -91,6 +105,7 @@ const Profile = () => {
                         )}
                     </div>
                 )}
+
                 {!user && (
                     <div className="profile-section">
                         <h3>Access Denied</h3>

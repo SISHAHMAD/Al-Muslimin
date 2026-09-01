@@ -3,7 +3,7 @@ import styles from "./AuthForm.module.css";
 import { supabase } from "../../utils/supabase";
 import { useNavigate } from "react-router-dom";
 
-const RegisterForm = ({ setIsLogin }) => {
+const RegisterForm = ({ isResetPassword }) => {
     const navigate = useNavigate();
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
@@ -32,6 +32,17 @@ const RegisterForm = ({ setIsLogin }) => {
         }
 
         setLoading(true);
+        // ================================================= // RESET PASSWORD // =================================================
+        if (isResetPassword) {
+            const { error } = await supabase.auth.updateUser({ password: password, });
+            setLoading(false);
+            if (error) {
+                setError(error.message);
+                return;
+            }
+            alert("Password changed successfully.");
+            form.reset(); navigate("/login"); return;
+        }
 
         const { data, error } = await supabase.auth.signUp({
             email,
@@ -93,13 +104,13 @@ const RegisterForm = ({ setIsLogin }) => {
             {error && <p className={styles.error}>{error}</p>}
 
             <button type="submit" disabled={loading}>
-                {loading ? "Signing Up..." : "Sign Up"}
+                {loading ? isResetPassword ? "Resetting Password..." : "Signing Up..." : isResetPassword ? "Reset Password" : "Sign Up"}
             </button>
 
-            <p>
+            {/* <p>
                 Already a Member?{" "}
                 <a
-                    href="#"
+                    href="/login"
                     onClick={(e) => {
                         e.preventDefault();
                         setIsLogin(true);
@@ -107,7 +118,7 @@ const RegisterForm = ({ setIsLogin }) => {
                 >
                     Login now
                 </a>
-            </p>
+            </p> */}
 
         </form>
     );

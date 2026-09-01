@@ -58,12 +58,12 @@ const LoginForm = ({ setIsLogin }) => {
                         required
                     />
                     {error && <p className={styles.error}>{error}</p>}
-                    <a href="">Forgot Password?</a>
+                    <a href="/reset-password">Forgot Password?</a>
                     <button type="submit" disabled={loading}>
                         {loading ? "Logging In..." : "Login"}
                     </button>
                 </form>
-                <p>Not a Member?<a href="#" onClick={(e) => { e.preventDefault(); setIsLogin(false); }}>Signup now</a></p>
+                {/* <p>Not a Member?<a href="/login" onClick={(e) => { e.preventDefault(); setIsLogin(false); }}>Signup now</a></p> */}
             </div>
         </>
     )

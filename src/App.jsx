@@ -8,6 +8,7 @@ import Contact from './components/Contact';
 import Courses from './components/Courses';
 import Profile from './components/profile/Profile';
 import LiveClasses from './components/live-class/LiveClasses';
+import ResetPassword from './components/Auth/ResetPassword';
 function App() {
   return (
 
@@ -22,6 +23,8 @@ function App() {
         <Route path="/courses/:courseId" element={<Courses />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/live-classes" element={<LiveClasses />} />
+        <Route path="*" element={<h1>404 Not Found</h1>} />
+        <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
     </BrowserRouter>
   )
