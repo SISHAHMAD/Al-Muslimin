@@ -23,8 +23,9 @@ function App() {
         <Route path="/courses/:courseId" element={<Courses />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/live-classes" element={<LiveClasses />} />
-        <Route path="*" element={<h1>404 Not Found</h1>} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="*" element={<h1>404 Not Found</h1>} />
+
       </Routes>
     </BrowserRouter>
   )
